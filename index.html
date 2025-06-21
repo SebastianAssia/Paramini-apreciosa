@@ -21,7 +21,7 @@
 
     h1 {
       font-size: 2.5em;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       color: #b30059;
     }
 
@@ -30,6 +30,7 @@
       font-size: 1.2em;
       line-height: 1.6;
       padding: 0 20px;
+      margin-bottom: 30px;
     }
 
     .corazon {
@@ -42,6 +43,15 @@
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.2); }
     }
+
+    #contador {
+      font-size: 1.5em;
+      color: #8b005c;
+      background-color: #fff0f5;
+      padding: 15px 25px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
   </style>
 </head>
 <body>
@@ -52,8 +62,34 @@
     En este bonito espacio hecho con muchísimooo amor y cariño, encontrarás una recopilación de mensajes, cartas, momentos, fotos, fechas y canciones que han marcado nuestra preciosa relación.
   </p>
 
+  <div id="contador"></div>
   <div class="corazon">❤️</div>
+
+  <script>
+    // Fecha objetivo: 9 de agosto a las 00:00
+    const fechaObjetivo = new Date("2025-08-09T00:00:00");
+
+    function actualizarContador() {
+      const ahora = new Date();
+      const diferencia = fechaObjetivo - ahora;
+
+      if (diferencia <= 0) {
+        document.getElementById("contador").innerText = "¡Ya es el gran día! 💖";
+        return;
+      }
+
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+      const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+      const segundos = Math.floor((diferencia / 1000) % 60);
+
+      document.getElementById("contador").innerText =
+        `Faltan ${dias} días, ${horas} horas, ${minutos} minutos y ${segundos} segundos para vernos 💞`;
+    }
+
+    actualizarContador();
+    setInterval(actualizarContador, 1000);
+  </script>
 
 </body>
 </html>
-
