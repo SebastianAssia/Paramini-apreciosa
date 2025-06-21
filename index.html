@@ -81,20 +81,23 @@
       transform: scale(1.05);
     }
 
-.seccion-oculta {
-  display: none;
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: opacity 0.5s ease, max-height 0.5s ease;
-}
+    .seccion-oculta {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
 
-.seccion-activa {
-  display: block;
-  opacity: 1;
-  max-height: 5000px; /* Ajusta según necesidad */
-  transition: opacity 0.8s ease, max-height 0.8s ease;
-}
+    .seccion-activa {
+      display: block;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+      background-color: #fff0f5;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin-top: 30px;
+      text-align: left;
+      padding: 20px;
+    }
 
 .lista-cartas {
   margin-top: 30px;
@@ -180,10 +183,9 @@
   text-indent: 2em;
 }
 
-.contenido-carta. {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease, padding 0.5s ease;
+.contenido-carta.visible {
+  display: block;
+  animation: desplegar 0.5s ease-out;
 }
 
 @keyframes desplegar {
@@ -224,11 +226,6 @@
       line-height: 1.6;
       margin-bottom: 10px;
     }
-
-    .contenido-carta.visible {
-  max-height: 1000px;
-  padding: 30px;
-}
 
     #seccion-fechas {
       max-width: 800px;
@@ -717,14 +714,13 @@
     });
   }
 
-function mostrarCartas() {
-  cerrarSecciones();
-  const seccion = document.getElementById("seccion-cartas");
-  seccion.classList.add("seccion-activa");
-  seccion.classList.remove("seccion-oculta");
-  // Elimina moverCorazon() o reemplázalo con:
-  seccion.scrollIntoView({ behavior: "smooth", block: "nearest" });
-}
+  function mostrarCartas() {
+    cerrarSecciones();
+    const seccion = document.getElementById("seccion-cartas");
+    seccion.classList.add("seccion-activa");
+    seccion.classList.remove("seccion-oculta");
+    moverCorazon();
+  }
 
   function mostrarFechas() {
     cerrarSecciones();
@@ -737,13 +733,19 @@ function mostrarCartas() {
 function toggleCarta(id) {
   const carta = document.getElementById(id);
   const titulo = document.querySelector(`[onclick="toggleCarta('${id}')"]`);
+  const estaVisible = carta.classList.contains('visible');
   
-  // Solo alterna la carta clickeada
-  if (carta.classList.contains('visible')) {
-    carta.classList.remove('visible');
-    titulo.classList.remove('activa');
-    setTimeout(() => carta.style.display = 'none', 300); // Espera a que termine la animación
-  } else {
+  // Cerrar todas las cartas primero
+  document.querySelectorAll('.contenido-carta').forEach(c => {
+    c.classList.remove('visible');
+    c.style.display = 'none';
+  });
+  document.querySelectorAll('.titulo-carta').forEach(t => {
+    t.classList.remove('activa');
+  });
+  
+  // Si no estaba visible, abrir esta carta
+  if (!estaVisible) {
     carta.style.display = 'block';
     setTimeout(() => {
       carta.classList.add('visible');
