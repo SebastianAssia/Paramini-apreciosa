@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Para ti, mi amor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -52,58 +53,82 @@
       border-radius: 20px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
+
     .menu-bonito {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-  margin-top: 20px;
-}
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
 
-.menu-bonito button {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1em;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 15px;
-  background-color: #ffb6c1;
-  color: #4a0033;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease, background-color 0.3s;
-}
+    .menu-bonito button {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1em;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 15px;
+      background-color: #ffb6c1;
+      color: #4a0033;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, background-color 0.3s;
+    }
 
-.menu-bonito button:hover {
-  background-color: #ff99aa;
-  transform: scale(1.05);
-}
+    .menu-bonito button:hover {
+      background-color: #ff99aa;
+      transform: scale(1.05);
+    }
 
-  #seccion-cartas {
-  max-width: 700px;
-  padding: 20px;
-  background-color: #fff0f5;
-  border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  text-align: left;
-}
+    .seccion-oculta {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.7s ease, padding 0.5s ease;
+      opacity: 0;
+    }
 
-#seccion-cartas h2 {
-  text-align: center;
-  color: #b30059;
-  font-size: 1.8em;
-  margin-bottom: 20px;
-}
-.carta {
-  background-color: #ffffff;
-  padding: 15px 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  font-size: 1.1em;
-  line-height: 1.6;
-}
+    .seccion-activa {
+      max-height: 1000px;
+      padding: 20px;
+      opacity: 1;
+      transition: max-height 1s ease, opacity 1s ease;
+      background-color: #fff0f5;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .lista-cartas {
+      margin-top: 20px;
+    }
+
+    .titulo-carta {
+      cursor: pointer;
+      background-color: #ffb6c1;
+      padding: 10px 15px;
+      margin: 10px 0;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .titulo-carta:hover {
+      background-color: #ff99aa;
+    }
+
+    .contenido-carta {
+      display: none;
+      background-color: #ffffff;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      font-size: 1.1em;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 <body>
 
   <h1>¡Bienvenida, mi señorita preciosa!</h1>
@@ -114,27 +139,45 @@
 
   <div id="contador"></div>
   <p>
-  Para hacer más amena la espera, te preparé este hermoso sitio para ti, mi vida. Esto contiene este precioso sitio:
-</p>
-<div class="menu-bonito">
-<div id="seccion-cartas" style="display: none; margin-top: 30px;">
-  <h2>📜 El primer "Te amo 😘" </h2>
-  <div class="carta">
-    <p>
-      Hola, me presento: mi nombre es Sebastián, tengo 21 años y estoy enamorado desde que tengo 19. Si esta carta está siendo leída, es porque hoy tuve el privilegio, la dicha y la fortuna de tener una cita maravillosa con el amor de mi vida, la mujer a la que amo: una señorita hermosa que se veía preciosa esta noche, una noche en la que tuve la dicha de poder demostrarle físicamente el inmenso amor que siento por ella. Un amor que fue intenso el día de ayer, que es inmensamente grande hoy, y que, con la misma seguridad y anhelo que siento en cada segundo de su presencia, puedo afirmar que también lo será mañana y el resto de mi vida, porque no son días ni meses los que quiero pasar a su lado, sino años y vidas enteras. Si tan solo esa preciosa señorita supiera cómo me hace sentir con tan solo mirarme y dibujar una sonrisa con sus angelicales labios, entendería que no miento cuando en estos escritos describo la grandeza del amor que siento por ella. Son las 2:01 de la mañana del día en que cumplimos 7 meses de estar juntos, 7 meses en los que he aprendido a amarla incesantemente con todas las fuerzas de mi corazón. Pensar que todo empezó con un motivo: una mirada divina de unos ojitos que me enamoraron inmediatamente e hicieron estallar cosas hermosas dentro de mí. En orden cronológico, puedo decir que después vinieron los abrazos, que no fueron simples gestos, sino refugios; abrazos que me enseñaron que el amor también es un hogar que se lleva en los brazos, un lugar seguro en medio de cualquier tormenta. No tardaron en llegar los besos, besos bonitos y sinceros, unos más intensos que otros, unos más lentos o más rápidos, pero todos como divinas manifestaciones físicas de un amor intenso y mutuo entre dos personas que desean estar juntas. Esta última temporada hemos sumado las promesas, ninguna dicha a la ligera, sino nacidas del aprendizaje mutuo, promesas que hacen querer perdurar este amor durante muchísimo tiempo más. Hoy celebramos 7 meses que no son simplemente días marcados en un calendario, sino siete capítulos llenos de aprendizajes, de crecimiento, de amor auténtico. Siete meses donde no solo he aprendido a amarla, sino también a amarme más a mí mismo, gracias a la manera en que me ven sus ojitos hermosos. Sé que el amor existe porque tú existes, y puedo decir con toda seguridad, y de la forma más sincera, que lo que hay dentro de mí es un amor inmenso hacia ti, mi vida. Realmente lo admito: a veces siento que no te merezco, y no es porque me sienta insuficiente, sino porque eres tanto que me cuesta creer que sea yo quien tiene la suerte de amarte. No quiero ser de nadie más, solo de ti, hasta que mis huesos se hagan ceniza y mi corazón deje de latir. Como lo dijo una vez Edvard Munch: "De mi cuerpo en descomposición crecerán flores y yo estaré en ellas; eso es eternidad". Hoy decido agregarle un fragmento a esa frase: "Flores que serán tuyas y crecerán por el amor que sienten por ti, flores que morirán y florecerán una y otra vez, un amor puro, cual rosa blanca, que perdurará por toda una eternidad". No le tengo miedo a tus espinas; permíteme sangrar por ti, aunque eso signifique morir desangrado en tus labios, porque sin duda tienes mi corazón en la palma de tus manos, latiendo a paso firme cada vez que posas tus labios sobre los míos. Y si ese corazón tuviera una voz, solo podría gritar tu nombre. Mi vida, amor de vida, amor de todas mis vidas, sé que somos jóvenes y aún estamos aprendiendo a amar, pero quiero que seas tú por el resto de mi vida. Quítame la juventud, no tengo miedo de amarte.
-      Te amo, Xilena, te amo con todo lo que tengo y todo lo que soy
-    </p>
+    Para hacer más amena la espera, te preparé este hermoso sitio para ti, mi vida. Esto contiene este precioso sitio:
+  </p>
+
+  <div class="menu-bonito">
+    <button onclick="alert('Aquí irán los Mensajotes 😘')">💌 Mensajotes</button>
+    <button onclick="alert('Aquí irán las Canciones 🎶')">🎵 Canciones</button>
+    <button onclick="mostrarCartas()">📜 Cartas</button>
+    <button onclick="alert('Aquí irán las Fechas especiales 📅')">📅 Fechas especiales</button>
   </div>
-</div>
-  <button onclick="alert('Aquí irán los Mensajotes 😘')">💌 Mensajotes</button>
-  <button onclick="alert('Aquí irán las Canciones 🎶')">🎵 Canciones</button>
-  <button onclick="mostrarCartas()">📜 Cartas</button>
-  <button onclick="alert('Aquí irán las Fechas especiales 📅')">📅 Fechas especiales</button>
-</div>
+
+  <div id="seccion-cartas" class="seccion-oculta">
+    <h2>📜 Cartas para ti</h2>
+
+    <div class="lista-cartas">
+      <div class="titulo-carta" onclick="toggleCarta('carta1')">🌅 Carta #1: El primer "Te amo"</div>
+      <div class="contenido-carta" id="carta1">
+        <p>
+          Hola, me presento: mi nombre es Sebastián, tengo 21 años y estoy enamorado desde que tengo 19. Si esta carta está siendo leída, es porque hoy tuve el privilegio...
+          Te amo, Xilena, te amo con todo lo que tengo y todo lo que soy.
+        </p>
+      </div>
+    </div>
+  </div>
+
   <div class="corazon">❤️</div>
 
   <script>
-    // Fecha objetivo: 9 de agosto a las 00:00
+    function mostrarCartas() {
+      const seccion = document.getElementById("seccion-cartas");
+      seccion.classList.toggle("seccion-activa");
+      seccion.classList.toggle("seccion-oculta");
+    }
+
+    function toggleCarta(id) {
+      const carta = document.getElementById(id);
+      const estaVisible = carta.style.display === "block";
+      carta.style.display = estaVisible ? "none" : "block";
+    }
+
     const fechaObjetivo = new Date("2025-08-09T00:00:00");
 
     function actualizarContador() {
@@ -154,15 +197,10 @@
       document.getElementById("contador").innerText =
         `Faltan ${dias} días, ${horas} horas, ${minutos} minutos y ${segundos} segundos para vernos 💞`;
     }
+
     actualizarContador();
     setInterval(actualizarContador, 1000);
   </script>
-<script>
-  function mostrarCartas() {
-    const seccion = document.getElementById("seccion-cartas");
-    seccion.style.display = seccion.style.display === "none" ? "block" : "none";
-    // Si quieres que al abrir cartas se oculten otras secciones después, lo podemos programar también.
-  }
-</script>
+
 </body>
 </html>
