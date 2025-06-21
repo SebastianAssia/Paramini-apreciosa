@@ -99,24 +99,123 @@
       padding: 20px;
     }
 
-    .lista-cartas {
-      margin-top: 20px;
-    }
+.lista-cartas {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
-    .titulo-carta {
-      cursor: pointer;
-      background-color: #ffb6c1;
-      padding: 10px 15px;
-      margin: 10px 0;
-      border-radius: 10px;
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
+.carta-item {
+  background: linear-gradient(135deg, #fff0f5 0%, #ffe4e9 100%);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(179, 0, 89, 0.15);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
 
-    .titulo-carta:hover {
-      background-color: #ff99aa;
-    }
+.carta-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(179, 0, 89, 0.25);
+  border-color: rgba(179, 0, 89, 0.3);
+}
 
+.titulo-carta {
+  cursor: pointer;
+  background: linear-gradient(45deg, #b30059, #8b005c);
+  color: white;
+  padding: 20px 25px;
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.1em;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+.titulo-carta::before {
+  content: '✉️';
+  font-size: 1.3em;
+  margin-right: 10px;
+}
+
+.titulo-carta::after {
+  content: '▼';
+  font-size: 0.9em;
+  transition: transform 0.3s ease;
+}
+
+.titulo-carta.activa::after {
+  transform: rotate(180deg);
+}
+
+.titulo-carta:hover {
+  background: linear-gradient(45deg, #d1006b, #a00066);
+}
+
+.contenido-carta {
+  display: none;
+  background-color: #ffffff;
+  padding: 30px;
+  font-size: 1.05em;
+  line-height: 1.8;
+  color: #4a0033;
+  border-top: 3px solid rgba(179, 0, 89, 0.1);
+  position: relative;
+}
+
+.contenido-carta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #b30059, #ff6b9d, #b30059);
+}
+
+.contenido-carta p {
+  margin: 0;
+  text-align: justify;
+  text-indent: 2em;
+}
+
+.contenido-carta.visible {
+  display: block;
+  animation: desplegar 0.5s ease-out;
+}
+
+@keyframes desplegar {
+  from {
+    opacity: 0;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+/* Efecto de papel vintage */
+.carta-item::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="paper" patternUnits="userSpaceOnUse" width="100" height="100"><rect width="100" height="100" fill="%23fff0f5"/><circle cx="20" cy="20" r="1" fill="%23ffe4e9" opacity="0.5"/><circle cx="80" cy="40" r="1" fill="%23ffe4e9" opacity="0.3"/><circle cx="40" cy="80" r="1" fill="%23ffe4e9" opacity="0.4"/></pattern></defs><rect width="100" height="100" fill="url(%23paper)"/></svg>') repeat;
+  pointer-events: none;
+  opacity: 0.1;
+  z-index: 1;
+}
     .contenido-carta {
       display: none;
       background-color: #ffffff;
@@ -271,11 +370,12 @@
     <button onclick="mostrarFechas()">📅 Fechas especiales</button>
   </div>
 
-  <div id="seccion-cartas" class="seccion-oculta">
-    <h2>📜 Cartas para ti</h2>
+<div id="seccion-cartas" class="seccion-oculta">
+  <h2>📜 Cartas para ti</h2>
 
-    <div class="lista-cartas">
-      <div class="titulo-carta" onclick="toggleCarta('carta1')"> Carta #1: El primer "Te amo"</div>
+  <div class="lista-cartas">
+    <div class="carta-item">
+      <div class="titulo-carta" onclick="toggleCarta('carta1')">Carta #1: El primer "Te amo"</div>
       <div class="contenido-carta" id="carta1">
         <p>
           Hola, me presento: mi nombre es Sebastián, tengo 21 años y estoy enamorado desde que tengo 19. Si esta carta está siendo leída, es porque hoy tuve el privilegio, la dicha y la fortuna de tener una cita maravillosa con el amor de mi vida, la mujer a la que amo: una señorita hermosa que se veía preciosa esta noche, una noche en la que tuve la dicha de poder demostrarle físicamente el inmenso amor que siento por ella. Un amor que fue intenso el día de ayer, que es inmensamente grande hoy, y que, con la misma seguridad y anhelo que siento en cada segundo de su presencia, puedo afirmar que también lo será mañana y el resto de mi vida, porque no son días ni meses los que quiero pasar a su lado, sino años y vidas enteras. Si tan solo esa preciosa señorita supiera cómo me hace sentir con tan solo mirarme y dibujar una sonrisa con sus angelicales labios, entendería que no miento cuando en estos escritos describo la grandeza del amor que siento por ella. Son las 2:01 de la mañana del día en que cumplimos 7 meses de estar juntos, 7 meses en los que he aprendido a amarla incesantemente con todas las fuerzas de mi corazón. Pensar que todo empezó con un motivo: una mirada divina de unos ojitos que me enamoraron inmediatamente e hicieron estallar cosas hermosas dentro de mí. En orden cronológico, puedo decir que después vinieron los abrazos, que no fueron simples gestos, sino refugios; abrazos que me enseñaron que el amor también es un hogar que se lleva en los brazos, un lugar seguro en medio de cualquier tormenta. No tardaron en llegar los besos, besos bonitos y sinceros, unos más intensos que otros, unos más lentos o más rápidos, pero todos como divinas manifestaciones físicas de un amor intenso y mutuo entre dos personas que desean estar juntas. Esta última temporada hemos sumado las promesas, ninguna dicha a la ligera, sino nacidas del aprendizaje mutuo, promesas que hacen querer perdurar este amor durante muchísimo tiempo más. Hoy celebramos 7 meses que no son simplemente días marcados en un calendario, sino siete capítulos llenos de aprendizajes, de crecimiento, de amor auténtico. Siete meses donde no solo he aprendido a amarla, sino también a amarme más a mí mismo, gracias a la manera en que me ven sus ojitos hermosos. Sé que el amor existe porque tú existes, y puedo decir con toda seguridad, y de la forma más sincera, que lo que hay dentro de mí es un amor inmenso hacia ti, mi vida. Realmente lo admito: a veces siento que no te merezco, y no es porque me sienta insuficiente, sino porque eres tanto que me cuesta creer que sea yo quien tiene la suerte de amarte. No quiero ser de nadie más, solo de ti, hasta que mis huesos se hagan ceniza y mi corazón deje de latir. Como lo dijo una vez Edvard Munch: "De mi cuerpo en descomposición crecerán flores y yo estaré en ellas; eso es eternidad". Hoy decido agregarle un fragmento a esa frase: "Flores que serán tuyas y crecerán por el amor que sienten por ti, flores que morirán y florecerán una y otra vez, un amor puro, cual rosa blanca, que perdurará por toda una eternidad". No le tengo miedo a tus espinas; permíteme sangrar por ti, aunque eso signifique morir desangrado en tus labios, porque sin duda tienes mi corazón en la palma de tus manos, latiendo a paso firme cada vez que posas tus labios sobre los míos. Y si ese corazón tuviera una voz, solo podría gritar tu nombre. Mi vida, amor de vida, amor de todas mis vidas, sé que somos jóvenes y aún estamos aprendiendo a amar, pero quiero que seas tú por el resto de mi vida. Quítame la juventud, no tengo miedo de amarte.
@@ -283,7 +383,18 @@
         </p>
       </div>
     </div>
+
+    <!-- Puedes agregar más cartas aquí con la misma estructura -->
+    <div class="carta-item">
+      <div class="titulo-carta" onclick="toggleCarta('carta2')">Carta #2: Título de la segunda carta</div>
+      <div class="contenido-carta" id="carta2">
+        <p>
+          Contenido de la segunda carta...
+        </p>
+      </div>
+    </div>
   </div>
+</div>
 
   <div id="seccion-fechas" class="seccion-oculta">
     <h2>📅 Fechas especiales</h2>
@@ -619,11 +730,29 @@
     moverCorazon();
   }
 
-  function toggleCarta(id) {
-    const carta = document.getElementById(id);
-    const estaVisible = carta.style.display === "block";
-    carta.style.display = estaVisible ? "none" : "block";
+function toggleCarta(id) {
+  const carta = document.getElementById(id);
+  const titulo = document.querySelector(`[onclick="toggleCarta('${id}')"]`);
+  const estaVisible = carta.classList.contains('visible');
+  
+  // Cerrar todas las cartas primero
+  document.querySelectorAll('.contenido-carta').forEach(c => {
+    c.classList.remove('visible');
+    c.style.display = 'none';
+  });
+  document.querySelectorAll('.titulo-carta').forEach(t => {
+    t.classList.remove('activa');
+  });
+  
+  // Si no estaba visible, abrir esta carta
+  if (!estaVisible) {
+    carta.style.display = 'block';
+    setTimeout(() => {
+      carta.classList.add('visible');
+      titulo.classList.add('activa');
+    }, 10);
   }
+}
 
   function moverCorazon() {
     setTimeout(() => {
