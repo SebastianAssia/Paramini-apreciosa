@@ -52,6 +52,31 @@
       border-radius: 20px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
+    .menu-bonito {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.menu-bonito button {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1em;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 15px;
+  background-color: #ffb6c1;
+  color: #4a0033;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.menu-bonito button:hover {
+  background-color: #ff99aa;
+  transform: scale(1.05);
+}
   </style>
 </head>
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
@@ -60,6 +85,12 @@
   <h1>¡Bienvenida, mi señorita preciosa!</h1>
 
   <p>
+    <div class="menu-bonito">
+  <button onclick="alert('Aquí irán los Mensajotes 😘')">💌 Mensajotes</button>
+  <button onclick="alert('Aquí irán las Canciones 🎶')">🎵 Canciones</button>
+  <button onclick="alert('Aquí irán las Cartas ✍️')">📜 Cartas</button>
+  <button onclick="alert('Aquí irán las Fechas especiales 📅')">📅 Fechas especiales</button>
+</div>
     En este bonito espacio hecho con muchísimooo amor y cariño, encontrarás una recopilación de mensajes, cartas, momentos, fotos, fechas y canciones que han marcado nuestra preciosa relación.
   </p>
 
