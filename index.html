@@ -127,6 +127,44 @@
       line-height: 1.6;
       margin-bottom: 10px;
     }
+    #seccion-fechas {
+  max-width: 800px;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #fff0f5;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.album {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.foto {
+  width: 200px;
+}
+
+.foto img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.foto img:hover {
+  transform: scale(1.05);
+}
+
+.foto p {
+  margin-top: 8px;
+  font-size: 0.95em;
+  color: #8b005c;
+}
   </style>
 </head>
 <body>
@@ -146,7 +184,7 @@
     <button onclick="alert('Aquí irán los Mensajotes 😘')">💌 Mensajotes</button>
     <button onclick="alert('Aquí irán las Canciones 🎶')">🎵 Canciones</button>
     <button onclick="mostrarCartas()">📜 Cartas</button>
-    <button onclick="alert('Aquí irán las Fechas especiales 📅')">📅 Fechas especiales</button>
+    <button onclick="mostrarFechas()">📅 Fechas especiales</button>
   </div>
 
   <div id="seccion-cartas" class="seccion-oculta">
@@ -171,7 +209,11 @@
       seccion.classList.toggle("seccion-activa");
       seccion.classList.toggle("seccion-oculta");
     }
-
+    function mostrarFechas() {
+  const seccion = document.getElementById("seccion-fechas");
+  seccion.classList.toggle("seccion-activa");
+  seccion.classList.toggle("seccion-oculta");
+}
     function toggleCarta(id) {
       const carta = document.getElementById(id);
       const estaVisible = carta.style.display === "block";
@@ -201,6 +243,14 @@
     actualizarContador();
     setInterval(actualizarContador, 1000);
   </script>
-
+<div id="seccion-fechas" class="seccion-oculta">
+  <h2>📅 Fechas especiales</h2>
+  <div class="album">
+    <div class="foto">
+      <img src="primeracita.jpg" alt="Momento especial">
+      <p>La primera cita 🥰</p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
