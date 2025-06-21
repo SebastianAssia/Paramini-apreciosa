@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
   <style>
     body {
+      padding: 30px 20px;
       margin: 0;
       padding: 0;
       font-family: 'Oswald', sans-serif;
@@ -211,13 +212,20 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 182, 193, 0.8);
   border: none;
-  font-size: 1.5em;
+  font-size: 1.3em;
   cursor: pointer;
-  padding: 5px 10px;
+  padding: 8px 10px;
   border-radius: 50%;
   z-index: 1;
+  transition: background-color 0.3s ease;
+  color: #4a0033;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.flecha:hover {
+  background-color: rgba(255, 153, 170, 0.9);
 }
 
 .flecha.izquierda {
@@ -349,7 +357,7 @@ setInterval(() => {
     imagenes.style.transform = `translateX(-${index * 100}%)`;
     carrusel.dataset.index = index;
   });
-}, 3000); // Cambia cada 4 segundos
+}, 4000); // Cambia cada 4 segundos
   
 </script>
   
@@ -360,12 +368,12 @@ setInterval(() => {
   <div class="imagenes">
     <img src="primeracita.jpg" alt="Foto 1">
     <img src="primeracita (1).jpg" alt="Foto 2">
-    <img src="primeracita (2)" alt="Foto 3">
-    <img src="primeracita (3)" alt="Foto 4">
-    <img src="primeracita (4)" alt="Foto 5">
+    <img src="primeracita (2).jpg" alt="Foto 3">
+    <img src="primeracita (3).jpg" alt="Foto 4">
+    <img src="primeracita (4).jpg" alt="Foto 5">
   </div>
   <button class="flecha izquierda" onclick="moverCarrusel(this, -1)">❮</button>
   <button class="flecha derecha" onclick="moverCarrusel(this, 1)">❯</button>
-  <p>Nuestra primera cita 🥰</p>
+  <p class="titulo-album">Primer paseo juntos 🥰</p>
 </div>
 
