@@ -154,10 +154,15 @@
       document.getElementById("contador").innerText =
         `Faltan ${dias} días, ${horas} horas, ${minutos} minutos y ${segundos} segundos para vernos 💞`;
     }
-
     actualizarContador();
     setInterval(actualizarContador, 1000);
   </script>
-
+<script>
+  function mostrarCartas() {
+    const seccion = document.getElementById("seccion-cartas");
+    seccion.style.display = seccion.style.display === "none" ? "block" : "none";
+    // Si quieres que al abrir cartas se oculten otras secciones después, lo podemos programar también.
+  }
+</script>
 </body>
 </html>
