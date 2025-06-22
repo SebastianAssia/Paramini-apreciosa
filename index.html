@@ -805,39 +805,6 @@ function toggleCarta(id) {
     imagenes.style.transform = `translateX(-${index * 100}%)`;
     carrusel.dataset.index = index;
   }
-
-  // Pausar video si no es visible
-function actualizarVideosCarrusel() {
-  document.querySelectorAll(".carrusel").forEach(carrusel => {
-    const index = parseInt(carrusel.dataset.index || "0");
-    const slides = carrusel.querySelector(".imagenes").children;
-
-    for (let i = 0; i < slides.length; i++) {
-      const el = slides[i];
-      if (el.tagName === "VIDEO") {
-        if (i === index) {
-          el.play();
-        } else {
-          el.pause();
-        }
-      }
-    }
-  });
-}
-
-setInterval(() => {
-  document.querySelectorAll(".carrusel").forEach(carrusel => {
-    const imagenes = carrusel.querySelector(".imagenes");
-    const total = imagenes.children.length;
-    let index = parseInt(carrusel.dataset.index || "0");
-    index = (index + 1) % total;
-    imagenes.style.transform = `translateX(-${index * 100}%)`;
-    carrusel.dataset.index = index;
-  });
-
-  actualizarVideosCarrusel(); // ⏸️/▶️ vídeos según visibilidad
-}, 4000);
-
   // Cambio automático
   setInterval(() => {
     document.querySelectorAll(".carrusel").forEach(carrusel => {
