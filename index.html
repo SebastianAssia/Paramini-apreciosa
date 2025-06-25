@@ -356,6 +356,54 @@
       border-radius: 10px;
       max-width: 250px;
     }
+.lista-canciones {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.cancion-item {
+  background-color: #fff0f5;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 20px;
+  max-width: 500px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.cancion-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(179, 0, 89, 0.15);
+}
+
+.cancion-item h3 {
+  margin: 0 0 10px;
+  color: #b30059;
+}
+
+.cancion-item a {
+  display: inline-block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  background-color: #ffb6c1;
+  color: #4a0033;
+  padding: 8px 15px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.cancion-item a:hover {
+  background-color: #ff99aa;
+}
+
+.cancion-item p {
+  font-size: 1em;
+  color: #4a0033;
+  line-height: 1.5;
+}
   </style>
 </head>
 <body>
@@ -373,7 +421,7 @@
 
   <div class="menu-bonito">
     <button onclick="alert('Aquí irán los Mensajotes 😘')">💌 Mensajotes</button>
-    <button onclick="alert('Aquí irán las Canciones 🎶')">🎵 Canciones</button>
+    <button onclick="mostrarCanciones()">🎵 Canciones</button>
     <button onclick="mostrarCartas()">📜 Cartas</button>
     <button onclick="mostrarFechas()">📅 Fechas especiales</button>
   </div>
@@ -424,6 +472,23 @@
     </div>
     <div class="titulo-album">Flores amarillas 🌻</div>
   </div>
+
+  <div id="seccion-canciones" class="seccion-oculta">
+  <h2>🎵 Canciones</h2>
+
+  <div class="lista-canciones">
+    
+    <!-- Ejemplo canción -->
+    <div class="cancion-item">
+      <h3>Perfect - Ed Sheeran</h3>
+      <a href="https://open.spotify.com/track/4VqPOruhp5EdPBeR92t6lQ" target="_blank">Escuchar en Spotify 🎧</a>
+      <p>Te la dediqué porque cada vez que la escucho, pienso en lo perfecta que eres para mí, mi amor.</p>
+    </div>
+
+    <!-- Aquí puedes seguir agregando más canciones siguiendo la misma estructura -->
+    
+  </div>
+</div>
 
   <!-- La bienvenida de Polar -->
   <div class="album-container">
@@ -816,6 +881,13 @@ function toggleCarta(id) {
       carrusel.dataset.index = index;
     });
   }, 4000);
+function mostrarCanciones() {
+  cerrarSecciones();
+  const seccion = document.getElementById("seccion-canciones");
+  seccion.classList.add("seccion-activa");
+  seccion.classList.remove("seccion-oculta");
+  moverCorazon();
+}
 </script>
 
 </body>
