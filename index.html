@@ -404,6 +404,15 @@
   color: #4a0033;
   line-height: 1.5;
 }
+
+    .seccion-activa-bonita {
+  background-color: #fff0f5;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  margin-top: 30px;
+  text-align: center;
+  padding: 20px;
+}
   </style>
 </head>
 <body>
@@ -760,7 +769,7 @@
     <div class="titulo-album">Comidita juntitos 🍝</div>
   </div>
 </div>
-  <div id="seccion-canciones" class="seccion-oculta">
+<div id="seccion-canciones" class="seccion-oculta seccion-activa-bonita">
   <h2>🎵 Canciones que te he dedicado</h2>
 
   <div class="lista-canciones">
@@ -771,7 +780,7 @@
       <p>Te la dediqué porque cada vez que la escucho, pienso en lo perfecta que eres para mí, mi amor.</p>
     </div>
 
-    <!-- Puedes seguir agregando más canciones aquí -->
+    <!-- Más canciones aquí -->
     
   </div>
 </div>
@@ -880,6 +889,7 @@ function toggleCarta(id) {
       carrusel.dataset.index = index;
     });
   }, 4000);
+  
 function mostrarCanciones() {
   cerrarSecciones();
   const seccion = document.getElementById("seccion-canciones");
