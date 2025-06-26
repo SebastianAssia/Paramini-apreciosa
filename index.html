@@ -808,13 +808,13 @@ function cerrarSecciones() {
     moverCorazon();
   }
 
-  function mostrarFechas() {
-    cerrarSecciones();
-    const seccion = document.getElementById("seccion-fechas");
-    seccion.classList.add("seccion-activa");
-    seccion.classList.remove("seccion-oculta");
-    moverCorazon();
-  }
+function mostrarFechas() {
+  cerrarSecciones();
+  const seccion = document.getElementById("seccion-fechas");
+  seccion.classList.add("seccion-activa");
+  seccion.classList.remove("seccion-oculta");
+  // Ya no llamas a moverCorazon() aquí
+}
 
 function toggleCarta(id) {
   const carta = document.getElementById(id);
