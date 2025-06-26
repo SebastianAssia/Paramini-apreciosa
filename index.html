@@ -872,10 +872,10 @@
 </div>
 <script>
 function cerrarSecciones() {
-  const secciones = ["seccion-cartas", "seccion-fechas", "seccion-canciones", "seccion-momentos"]; 
+  const secciones = ["seccion-cartas", "seccion-fechas", "seccion-canciones", "seccion-mensajotes"];
   secciones.forEach(id => {
     const el = document.getElementById(id);
-    if (el) { 
+    if (el) {
       el.classList.remove("seccion-activa");
       el.classList.add("seccion-oculta");
     }
