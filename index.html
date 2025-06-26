@@ -471,37 +471,37 @@
   box-shadow: 0 4px 10px rgba(179, 0, 89, 0.2);
 }
 
-  .fondo-corazones {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0; left: 0;
-  z-index: -1;
-  overflow: hidden;
-  pointer-events: none;
-}
+    .fondo-corazones {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0; left: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
 
-.corazon-flotante {
-  position: absolute;
-  color: #ffc0cb;
-  font-size: 1.5em;
-  animation: flotar 10s linear infinite;
-  opacity: 0.6;
-}
+    .corazon-flotante {
+      position: absolute;
+      color: #ffb6c1;
+      font-size: 1.5em;
+      animation: flotar 10s linear infinite;
+      opacity: 0.6;
+    }
 
-@keyframes flotar {
-  0% {
-    transform: translateY(100vh) rotate(0deg);
-  }
-  100% {
-    transform: translateY(-10vh) rotate(360deg);
-  }
-}
+    @keyframes flotar {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-10vh) rotate(360deg);
+      }
+    }
   </style>
 </head>
 <body>
 
-  <h1>2¡Bienvenida, mi señorita preciosa!</h1>
+  <h1>¡Bienvenida, mi señorita preciosa (Intento 3)!</h1>
 
   <p>
     En este bonito espacio hecho con muchísimooo amor y cariño, encontrarás una recopilación de mensajes, cartas, momentos, fotos, fechas y canciones que han marcado nuestra preciosa relación.
@@ -1029,18 +1029,21 @@ function mostrarMensajotes() {
   seccion.classList.add("seccion-activa");
   seccion.classList.remove("seccion-oculta");
 }
+  <!-- Fondo animado de corazones -->
 <div class="fondo-corazones" id="fondoCorazones"></div>
-<script>
+
   const fondo = document.getElementById("fondoCorazones");
+
   for (let i = 0; i < 30; i++) {
     const heart = document.createElement("div");
     heart.className = "corazon-flotante";
     heart.style.left = Math.random() * 100 + "vw";
+    heart.style.top = Math.random() * 100 + "vh";
     heart.style.fontSize = (Math.random() * 2 + 1) + "em";
     heart.style.animationDuration = (Math.random() * 10 + 5) + "s";
     heart.textContent = "❤";
     fondo.appendChild(heart);
   }
-</script>
+</script> 
 </body>
 </html>
