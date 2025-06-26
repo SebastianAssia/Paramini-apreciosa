@@ -497,12 +497,58 @@
         transform: translateY(-10vh) rotate(360deg);
       }
     }
+    #pantalla-bienvenida {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffe4e9;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1s ease, visibility 1s;
+}
+
+#pantalla-bienvenida .contenido-bienvenida {
+  text-align: center;
+  animation: aparecer 1s ease-in-out;
+}
+
+#pantalla-bienvenida .emoji {
+  font-size: 3em;
+  animation: latir 1.2s infinite;
+}
+
+#pantalla-bienvenida p {
+  font-size: 1.5em;
+  color: #b30059;
+  margin-top: 20px;
+}
+
+@keyframes aparecer {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
   </style>
 </head>
 <body>
   <div class="fondo-corazones" id="fondoCorazones"></div>
+  <div id="pantalla-bienvenida">
+  <div class="contenido-bienvenida">
+    <div class="emoji">❤️</div>
+    <p>Gracias por estos 10 mesecito, mi niña preciosa❤️</p>
+  </div>
+</div>
 
-  <h1>¡Bienvenida, mi señorita preciosa (Intento 6)!</h1>
+  <h1>¡Bienvenida, mi señorita preciosa (Intento 7)!</h1>
 
   <p>
     En este bonito espacio hecho con muchísimooo amor y cariño, encontrarás una recopilación de mensajes, cartas, momentos, fotos, fechas y canciones que han marcado nuestra preciosa relación.
@@ -1046,6 +1092,16 @@ function mostrarMensajotes() {
     heart.textContent = "❤";
     fondo.appendChild(heart);
   }
+</script>
+  <script>
+  // Esperar 3 segundos y ocultar pantalla de bienvenida
+  window.addEventListener("load", () => {
+    const bienvenida = document.getElementById("pantalla-bienvenida");
+    setTimeout(() => {
+      bienvenida.style.opacity = "0";
+      bienvenida.style.visibility = "hidden";
+    }, 3000);
+  });
 </script>
 </body>
 </html>
