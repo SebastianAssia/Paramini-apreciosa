@@ -497,7 +497,7 @@
         transform: translateY(-10vh) rotate(360deg);
       }
     }
-    #pantalla-bienvenida {
+#pantalla-bienvenida {
   position: fixed;
   top: 0; left: 0;
   width: 100vw;
@@ -505,15 +505,17 @@
   background-color: #ffe4e9;
   z-index: 9999;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: opacity 1s ease, visibility 1s;
+  flex-direction: column;
+  overflow: hidden;
+  transition: opacity 1.5s ease, visibility 1.5s;
 }
 
 #pantalla-bienvenida .contenido-bienvenida {
+  z-index: 2;
   text-align: center;
-  animation: aparecer 1s ease-in-out;
+  animation: aparecer 1.5s ease-in-out;
 }
 
 #pantalla-bienvenida .emoji {
@@ -522,9 +524,55 @@
 }
 
 #pantalla-bienvenida p {
-  font-size: 1.5em;
+  font-size: 1.8em;
   color: #b30059;
+  font-weight: bold;
+  font-family: 'Oswald', sans-serif;
   margin-top: 20px;
+}
+
+@keyframes aparecer {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.imagen-deco {
+  width: 90px;
+  margin-bottom: 20px;
+  opacity: 0.8;
+  animation: aparecer 1.5s ease-in-out;
+}
+
+.corazones-fondo {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.corazon-flotante {
+  position: absolute;
+  color: #ff8fb8;
+  font-size: 1.5em;
+  animation: flotar 10s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes flotar {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-10vh) rotate(360deg);
+  }
 }
 
 @keyframes aparecer {
@@ -540,15 +588,17 @@
   </style>
 </head>
 <body>
-  <div class="fondo-corazones" id="fondoCorazones"></div>
-  <div id="pantalla-bienvenida">
+<div id="pantalla-bienvenida">
+  <div class="corazones-fondo"></div>
   <div class="contenido-bienvenida">
+    <img src="161e02a1-9fa0-4df6-aa10-b48d0a726127.png" alt="Decoración" class="imagen-deco" />
     <div class="emoji">❤️</div>
-    <p>Gracias por estos 10 mesecito, mi niña preciosa❤️</p>
+    <p>Gracias por estos 10 mesecitos, mi niña preciosa 💖</p>
   </div>
 </div>
 
-  <h1>¡Bienvenida, mi señorita preciosa (Intento 7)!</h1>
+
+  <h1>¡Bienvenida, mi señorita preciosa (Intento 8)!</h1>
 
   <p>
     En este bonito espacio hecho con muchísimooo amor y cariño, encontrarás una recopilación de mensajes, cartas, momentos, fotos, fechas y canciones que han marcado nuestra preciosa relación.
@@ -1093,14 +1143,28 @@ function mostrarMensajotes() {
     fondo.appendChild(heart);
   }
 </script>
-  <script>
-  // Esperar 3 segundos y ocultar pantalla de bienvenida
+<script>
+  // Animación de corazones flotantes en la pantalla de bienvenida
+  const fondoBienvenida = document.querySelector("#pantalla-bienvenida .corazones-fondo");
+
+  for (let i = 0; i < 25; i++) {
+    const heart = document.createElement("div");
+    heart.className = "corazon-flotante";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.top = Math.random() * 100 + "vh";
+    heart.style.fontSize = (Math.random() * 2 + 1) + "em";
+    heart.style.animationDuration = (Math.random() * 8 + 5) + "s";
+    heart.textContent = "❤";
+    fondoBienvenida.appendChild(heart);
+  }
+
+  // Ocultar la bienvenida después de 4 segundos
   window.addEventListener("load", () => {
     const bienvenida = document.getElementById("pantalla-bienvenida");
     setTimeout(() => {
       bienvenida.style.opacity = "0";
       bienvenida.style.visibility = "hidden";
-    }, 3000);
+    }, 4000);
   });
 </script>
 </body>
