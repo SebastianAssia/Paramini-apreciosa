@@ -509,7 +509,7 @@
   justify-content: center;
   flex-direction: column;
   overflow: hidden;
-  transition: opacity 1.5s ease, visibility 1.5s;
+  transition: opacity 1s ease, visibility 1s;
 }
 
 #pantalla-bienvenida .contenido-bienvenida {
@@ -521,14 +521,49 @@
 #pantalla-bienvenida .emoji {
   font-size: 3em;
   animation: latir 1.2s infinite;
+  margin-bottom: 15px;
 }
 
-#pantalla-bienvenida p {
-  font-size: 1.8em;
+#pantalla-bienvenida .pregunta {
+  font-size: 1.6em;
   color: #b30059;
-  font-weight: bold;
+  margin-bottom: 25px;
   font-family: 'Oswald', sans-serif;
-  margin-top: 20px;
+}
+
+#pantalla-bienvenida button {
+  font-size: 1.2em;
+  font-family: 'Oswald', sans-serif;
+  padding: 12px 24px;
+  background-color: #ffb6c1;
+  color: #4a0033;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#pantalla-bienvenida button:hover {
+  background-color: #ff99aa;
+  transform: scale(1.05);
+}
+
+.corazones-fondo {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.corazon-flotante {
+  position: absolute;
+  color: #ff8fb8;
+  font-size: 1.5em;
+  animation: flotar 10s linear infinite;
+  opacity: 0.4;
 }
 
 @keyframes aparecer {
@@ -542,6 +577,14 @@
   }
 }
 
+@keyframes flotar {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-10vh) rotate(360deg);
+  }
+}
 .imagen-deco {
   width: 90px;
   margin-bottom: 20px;
@@ -591,9 +634,9 @@
 <div id="pantalla-bienvenida">
   <div class="corazones-fondo"></div>
   <div class="contenido-bienvenida">
-    <img src="Decoracion.jpg" alt="Decoración" class="imagen-deco" />
     <div class="emoji">❤️</div>
-    <p>Gracias por estos 10 mesecitos, mi niña preciosa</p>
+    <p class="pregunta">¿Quieres saber qué hemos hecho en estos 10 meses?</p>
+    <button id="botonContinuar">Continuar</button>
   </div>
 </div>
 
@@ -1144,7 +1187,7 @@ function mostrarMensajotes() {
   }
 </script>
 <script>
-  // Animación de corazones flotantes en la pantalla de bienvenida
+  // Corazones flotantes
   const fondoBienvenida = document.querySelector("#pantalla-bienvenida .corazones-fondo");
 
   for (let i = 0; i < 25; i++) {
@@ -1158,13 +1201,11 @@ function mostrarMensajotes() {
     fondoBienvenida.appendChild(heart);
   }
 
-  // Ocultar la bienvenida después de 4 segundos
-  window.addEventListener("load", () => {
+  // Botón para continuar
+  document.getElementById("botonContinuar").addEventListener("click", () => {
     const bienvenida = document.getElementById("pantalla-bienvenida");
-    setTimeout(() => {
-      bienvenida.style.opacity = "0";
-      bienvenida.style.visibility = "hidden";
-    }, 4000);
+    bienvenida.style.opacity = "0";
+    bienvenida.style.visibility = "hidden";
   });
 </script>
 </body>
