@@ -789,14 +789,16 @@
 </div>
 
 <script>
-  function cerrarSecciones() {
-    const secciones = ["seccion-cartas", "seccion-fechas"];
-    secciones.forEach(id => {
-      const el = document.getElementById(id);
+function cerrarSecciones() {
+  const secciones = ["seccion-cartas", "seccion-fechas", "seccion-canciones", "seccion-momentos"]; 
+  secciones.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { 
       el.classList.remove("seccion-activa");
       el.classList.add("seccion-oculta");
-    });
-  }
+    }
+  });
+}
 
   function mostrarCartas() {
     cerrarSecciones();
