@@ -413,6 +413,63 @@
   text-align: center;
   padding: 20px;
 }
+
+.lista-meses {
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px auto;
+}
+
+.mes-item {
+  background-color: #fff0f5;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.titulo-mes {
+  background: linear-gradient(45deg, #b30059, #8b005c);
+  color: white;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titulo-mes::after {
+  content: '▼';
+  font-size: 0.9em;
+  transition: transform 0.3s ease;
+}
+
+.titulo-mes.activa::after {
+  transform: rotate(180deg);
+}
+
+.mensajes-mes {
+  display: none;
+  padding: 15px 20px;
+  background-color: #ffe4e9;
+}
+
+.mensaje {
+  background-color: #fff;
+  padding: 12px 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 10px;
+  color: #4a0033;
+  line-height: 1.5;
+}
+
+.mensaje:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(179, 0, 89, 0.2);
+}
   </style>
 </head>
 <body>
@@ -429,11 +486,40 @@
   </p>
 
 <div class="menu-bonito">
-  <button onclick="alert('Aquí irán los Mensajotes 😘')">💌 Mensajotes</button>
+  <button onclick="mostrarMensajotes()">💬 Mensajotes</button>
   <button onclick="mostrarCanciones()">🎵 Canciones</button>
   <button onclick="mostrarCartas()">📜 Cartas</button>
   <button onclick="mostrarFechas()">📅 Fechas especiales</button>
 </div>
+
+<div id="seccion-mensajotes" class="seccion-oculta">
+  <h2>💬 Mensajotes rescatados por meses</h2>
+
+  <div class="lista-meses">
+
+    <!-- Mes ejemplo -->
+    <div class="mes-item">
+      <div class="titulo-mes" onclick="toggleMes('abril')">🌸 Abril 2024</div>
+      <div class="mensajes-mes" id="abril">
+        
+        <div class="mensaje">
+          <p><strong>01/04/2024</strong> — Buenos días mi amor, que tengas un día precioso ❤️</p>
+        </div>
+
+        <div class="mensaje">
+          <p><strong>03/04/2024</strong> — Me haces tanta falta, no dejo de pensar en ti ✨</p>
+        </div>
+
+        <!-- Más mensajes de abril aquí -->
+
+      </div>
+    </div>
+
+    <!-- Puedes replicar esto para otros meses -->
+    
+  </div>
+</div>
+
 
 <div id="seccion-canciones" class="seccion-oculta seccion-activa-bonita">
   <h2>🎵 Canciones que te he dedicado</h2>
@@ -894,7 +980,28 @@ function mostrarCanciones() {
   seccion.classList.remove("seccion-oculta");
   moverCorazon();
 }
-</script>
 
+function toggleMes(id) {
+  const contenido = document.getElementById(id);
+  const titulo = document.querySelector(`[onclick="toggleMes('${id}')"]`);
+  
+  const visible = contenido.style.display === "block";
+  
+  document.querySelectorAll(".mensajes-mes").forEach(m => m.style.display = "none");
+  document.querySelectorAll(".titulo-mes").forEach(t => t.classList.remove("activa"));
+
+  if (!visible) {
+    contenido.style.display = "block";
+    titulo.classList.add("activa");
+  }
+}
+
+function mostrarMensajotes() {
+  cerrarSecciones();
+  const seccion = document.getElementById("seccion-mensajotes");
+  seccion.classList.add("seccion-activa");
+  seccion.classList.remove("seccion-oculta");
+}
+</script>
 </body>
 </html>
