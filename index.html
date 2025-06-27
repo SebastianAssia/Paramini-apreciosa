@@ -1196,11 +1196,11 @@ Te quiero muchoooo, con todas las letras, con cada pensamiento, con cada suspiro
 </div>
 <script>
 function cerrarSecciones() {
-  const ids = ["seccion-cartas", "seccion-fechas", "seccion-canciones"];
+  const ids = ["seccion-cartas", "seccion-fechas", "seccion-canciones", "seccion-mensajotes"];
   ids.forEach(id => {
     const el = document.getElementById(id);
     if (el) {
-      el.classList.remove("seccion-activa-bonita");
+      el.classList.remove("seccion-activa-bonita", "seccion-activa");
       el.classList.add("seccion-oculta");
     }
   });
