@@ -1058,13 +1058,12 @@ function cerrarSecciones() {
   });
 }
 
-  function mostrarCartas() {
-    cerrarSecciones();
-    const seccion = document.getElementById("seccion-cartas");
-    seccion.classList.add("seccion-activa");
-    seccion.classList.remove("seccion-oculta");
-    moverCorazon();
-  }
+ function mostrarFechas() {
+  cerrarSecciones();
+  const seccion = document.getElementById("seccion-fechas");
+  seccion.classList.add("seccion-activa-bonita");
+  seccion.classList.remove("seccion-oculta");
+}
 
 function mostrarFechas() {
   cerrarSecciones();
