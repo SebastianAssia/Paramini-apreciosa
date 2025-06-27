@@ -1196,22 +1196,20 @@ Te quiero muchoooo, con todas las letras, con cada pensamiento, con cada suspiro
 </div>
 <script>
 function cerrarSecciones() {
-  const secciones = ["seccion-cartas", "seccion-fechas", "seccion-canciones", "seccion-mensajotes"];
-  secciones.forEach(id => {
+  const ids = ["seccion-cartas", "seccion-fechas", "seccion-canciones"];
+  ids.forEach(id => {
     const el = document.getElementById(id);
     if (el) {
-      el.classList.remove("seccion-activa");
+      el.classList.remove("seccion-activa-bonita");
       el.classList.add("seccion-oculta");
     }
   });
 }
-
 function mostrarFechas() {
   cerrarSecciones();
-  const seccion = document.getElementById("seccion-fechas");
-  seccion.classList.add("seccion-activa");
-  seccion.classList.remove("seccion-oculta");
-  // Ya no llamas a moverCorazon() aquí
+  const s = document.getElementById("seccion-fechas");
+  s.classList.add("seccion-activa-bonita");
+  s.classList.remove("seccion-oculta");
 }
 
 function toggleCarta(id) {
@@ -1291,10 +1289,9 @@ function toggleCarta(id) {
   
 function mostrarCanciones() {
   cerrarSecciones();
-  const seccion = document.getElementById("seccion-canciones");
-  seccion.classList.add("seccion-activa");
-  seccion.classList.remove("seccion-oculta");
-  moverCorazon();
+  const s = document.getElementById("seccion-canciones");
+  s.classList.add("seccion-activa-bonita");
+  s.classList.remove("seccion-oculta");
 }
 
 function toggleMes(id) {
@@ -1322,7 +1319,7 @@ function mostrarMensajotes() {
 function mostrarCartas() {
   cerrarSecciones();
   const s = document.getElementById("seccion-cartas");
-  s.classList.add("seccion-activa-bonita"); // <- CAMBIA ESTA LÍNEA
+  s.classList.add("seccion-activa-bonita");
   s.classList.remove("seccion-oculta");
 }
 </script> 
