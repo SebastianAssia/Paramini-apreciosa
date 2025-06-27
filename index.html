@@ -366,46 +366,38 @@
   gap: 20px;
   align-items: center;
 }
-
 .cancion-item {
+  display: flex;
   background-color: #fff0f5;
   border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  padding: 20px;
-  max-width: 500px;
-  text-align: center;
-  transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  overflow: hidden;
+  flex-wrap: wrap;
 }
 
-.cancion-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(179, 0, 89, 0.15);
+.portada-cancion {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-right: 3px solid #ffb6c1;
 }
 
-.cancion-item h3 {
-  margin: 0 0 10px;
-  color: #b30059;
+.detalle-cancion {
+  padding: 15px 20px;
+  flex: 1;
 }
 
-.cancion-item a {
-  display: inline-block;
+.verso-cancion {
+  font-style: italic;
+  font-size: 1.1em;
   margin-bottom: 10px;
-  text-decoration: none;
-  background-color: #ffb6c1;
-  color: #4a0033;
-  padding: 8px 15px;
-  border-radius: 10px;
-  transition: background-color 0.3s ease;
+  color: #99004d;
 }
 
-.cancion-item a:hover {
-  background-color: #ff99aa;
-}
-
-.cancion-item p {
-  font-size: 1em;
-  color: #4a0033;
-  line-height: 1.5;
+.razon-cancion {
+  font-size: 0.95em;
+  color: #333;
 }
 
     .seccion-activa-bonita {
@@ -696,16 +688,16 @@
 
   <div class="lista-canciones">
     
-    <div class="cancion-item">
-      <h3>Perfect - Ed Sheeran</h3>
-      <a href="https://open.spotify.com/track/4VqPOruhp5EdPBeR92t6lQ" target="_blank">Escuchar en Spotify 🎧</a>
-      <p>Te la dediqué porque cada vez que la escucho, pienso en lo perfecta que eres para mí, mi amor.</p>
-    </div>
-
-    <!-- Más canciones aquí -->
-    
+<div class="cancion-item">
+  <a href="https://open.spotify.com/track/ID_DE_LA_CANCION" target="_blank">
+    <img src="URL_PORTADA" alt="Portada canción" class="portada-cancion">
+  </a>
+  <div class="detalle-cancion">
+    <p class="verso-cancion">“Y tú llegaste a mi vida como un rayo de sol...”</p>
+    <p class="razon-cancion">Elegí esta canción porque me recuerda cómo iluminas mis días, incluso los más nublados.</p>
   </div>
 </div>
+
 <div id="seccion-cartas" class="seccion-oculta">
   <h2>📜 Cartas para ti</h2>
 
