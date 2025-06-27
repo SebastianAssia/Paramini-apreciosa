@@ -644,7 +644,7 @@
 </div>
 
 
-  <h1>¡Bienvenida, mi señorita preciosa (Intento 9)!</h1>
+  <h1>¡Bienvenida, mi señorita preciosa!</h1>
 
   <p>
     En este bonito espacio hecho con muchísimooo amor y cariño, encontrarás una recopilación de mensajes, cartas, momentos, fotos, fechas y canciones que han marcado nuestra preciosa relación.
@@ -1178,6 +1178,13 @@ function mostrarMensajotes() {
   const seccion = document.getElementById("seccion-mensajotes");
   seccion.classList.add("seccion-activa");
   seccion.classList.remove("seccion-oculta");
+}
+
+function mostrarCartas() {
+  cerrarSecciones();
+  const s = document.getElementById("seccion-cartas");
+  s.classList.add("seccion-activa-bonita"); // <- CAMBIA ESTA LÍNEA
+  s.classList.remove("seccion-oculta");
 }
 </script> 
   
