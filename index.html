@@ -648,7 +648,6 @@
   </p>
 
 <div class="menu-bonito">
-  <button onclick="mostrarMensajotes()">💬 Mensajotes</button>
   <button onclick="mostrarCanciones()">🎵 Canciones</button>
   <button onclick="mostrarCartas()">📜 Cartas</button>
   <button onclick="mostrarFechas()">📅 Fechas especiales</button>
@@ -1205,13 +1204,6 @@ function cerrarSecciones() {
       el.classList.add("seccion-oculta");
     }
   });
-}
-
- function mostrarFechas() {
-  cerrarSecciones();
-  const seccion = document.getElementById("seccion-fechas");
-  seccion.classList.add("seccion-activa-bonita");
-  seccion.classList.remove("seccion-oculta");
 }
 
 function mostrarFechas() {
